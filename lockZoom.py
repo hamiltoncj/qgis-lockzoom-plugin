@@ -1,3 +1,13 @@
+"""
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+"""
 from qgis.PyQt.QtCore import Qt, QUrl
 from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction
@@ -32,8 +42,8 @@ class LockZoomToTiles:
         '''Initialize Lock Zoom to Tiles GUI.'''
 
         icon = QIcon()
-        icon.addFile(os.path.dirname(__file__) + "/images/zoomUnlocked.svg", state=QIcon.Off)
-        icon.addFile(os.path.dirname(__file__) + "/images/zoomLocked.svg", state=QIcon.On)
+        icon.addFile(os.path.dirname(__file__) + "/images/zoomUnlocked.svg", state=QIcon.State.Off)
+        icon.addFile(os.path.dirname(__file__) + "/images/zoomLocked.svg", state=QIcon.State.On)
         self.action = QAction(icon, "Lock zoom scale", self.iface.mainWindow())
         self.action.setObjectName('lockZoom')
         self.action.triggered.connect(self.lockIt)
